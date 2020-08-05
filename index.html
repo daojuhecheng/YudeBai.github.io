@@ -12,7 +12,8 @@
 	
 	<body background="jpg/bgpicture.jpg">
 		<hr style="height:5px;border:none;border-top:5px ridge black;width:50%"></hr>
-
+		
+		<!--基本信息-->
 		<table align=center width="50%">
 			<tr><td><img src="jpg/byd.jpg" width="200" height="180"></td></tr>
 			<tr><td height="20px"></td></tr>
@@ -36,6 +37,29 @@
 			<tr><td><h2 style="font-family:黑体">联系方式</h2></td></tr>
 			<tr><td style="font-family:黑体;font-size:20px">邮箱：baiyude@tju.edu.cn</td></tr>
 		</table>
+		
+		<!--live2D 设置-->
+		<!--引入 css 文件-->
+		<link rel="stylesheet" href="{%static 'live2d/css/live2d.css'%}" />
+
+		<!--引入 js 文件-->
+		<script src="{%static 'live2d/js/jquery-2.2.0.min.js'%}"></script>
+		<script type="text/javascript">
+			var message_Path = '{%static 'live2d/message.json' %}';
+			var home_Path = 'https://yudebai.github.io/'               //此处可以修改为你的域名，必须带斜杠
+		</script>
+		<script type="text/javascript" src="{%static 'live2d/js/live2d.js'%}"></script>
+		<script type="text/javascript" src="{%static 'live2d/js/message.js'%}"></script>
+		<script type="text/javascript">
+		    loadlive2d("live2d", "{%static 'live2d/model/tia/model.json'%}");
+		</script>
+		
+		<!--canvas 设置-->
+		<div id="landlord">
+		       <div class="message" style="opacity:0"></div>
+		       <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+		       <div class="hide-button">隐藏</div>
+		</div>
 	</body>	
 
 </html>
